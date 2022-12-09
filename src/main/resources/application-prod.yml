@@ -1,0 +1,38 @@
+server:
+  servlet:
+    contextPath: /bali/services
+  port: 8080
+spring:
+  security:
+    user:
+      name: admin
+  application:
+    name: memberService
+  sleuth:
+    enabled: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+  db2:
+    datasource:
+      url: jdbc:as400://NATIONS/NATIONS;naming=sql;transaction isolation=read commited;true autocommit=true;
+      default_schema_name: ABVVTFX
+      username: ABVVCMNT
+      password: AZER1234
+      hibernate:
+        hbm2ddl:
+          auto: validation
+        dialect: org.hibernate.dialect.DB2400Dialect
+      driverClassName: com.ibm.as400.access.AS400JDBCDriver
+    national:
+      datasource:
+        url: jdbc:as400://NATIONAL/NATIONAL;naming=sql;transaction isolation=read commited;true autocommit=false;
+        default_schema_name: ABVVPFX9
+        username: ABVVCMNT
+        password: AZER1234
+        hibernate:
+          hbm2ddl:
+            auto: validation
+          dialect: org.hibernate.dialect.DB2400Dialect
+        driverClassName: com.ibm.as400.access.AS400JDBCDriver
+
